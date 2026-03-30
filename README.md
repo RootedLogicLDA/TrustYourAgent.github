@@ -31,25 +31,3 @@ pip install tya
 # 2. Run the local Docker engine (recommended for full local mode)
 docker run -d --name tya-local -p 8080:8080 rootedlogic/tya-local:latest
 
---------------------------------------
-
-Example: LangGraph
-Pythonfrom langgraph.graph import StateGraph
-from tya import TYA_LocalCheckpoint
-
-graph = StateGraph(...)
-graph.add_node("trust_check", TYA_LocalCheckpoint())   # adds tracing + basic behavioural score
-
----------------------------------------
-Example: CrewAI
-Pythonfrom crewai import Agent
-from tya import tya_local
-
-@tya_local
-def research_agent():
-    return Agent(
-        role="Research Analyst",
-        goal="...",
-        backstory="..."
-    )
-(Full examples in the /examples folder)
